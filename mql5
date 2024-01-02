@@ -1,0 +1,86 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                               Power of EURUSD.mq5 |
+//|                      Developed by Forex Robot Easy Team - forexroboteasy.com |
+//|                                                                      |
+//|                         Code for Power of EURUSD forex software     |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      Global Variables                             |
+//|                                                                  |
+//+------------------------------------------------------------------+
+double g_EMA1;
+double g_EMA2;
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      Initialization                              |
+//|                                                                  |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Set initial values for global variables
+    g_EMA1 = iMA(NULL, PERIOD_CURRENT, 10, 0, MODE_EMA, PRICE_CLOSE, 0);
+    g_EMA2 = iMA(NULL, PERIOD_CURRENT, 20, 0, MODE_EMA, PRICE_CLOSE, 0);
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      Market Analysis                             |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void MarketAnalysis()
+{
+    double currentEMA1 = iMA(NULL, PERIOD_CURRENT, 10, 0, MODE_EMA, PRICE_CLOSE, 0);
+    double currentEMA2 = iMA(NULL, PERIOD_CURRENT, 20, 0, MODE_EMA, PRICE_CLOSE, 0);
+
+    if (currentEMA1 > currentEMA2)
+    {
+        // Buy signal
+        // Place code for buy signal here
+    }
+    else if (currentEMA1 < currentEMA2)
+    {
+        // Sell signal
+        // Place code for sell signal here
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      Trading Functions                           |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void BuySignal()
+{
+    // Place code for executing a buy trade here
+}
+
+void SellSignal()
+{
+    // Place code for executing a sell trade here
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      Main Program                                 |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    MarketAnalysis();
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      Program Termination                         |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Place code for program termination here
+}
